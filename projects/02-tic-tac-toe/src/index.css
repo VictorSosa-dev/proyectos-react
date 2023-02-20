@@ -46,6 +46,7 @@ body {
   background: transparent;
   border: 2px solid #eee;
   color: #eee;
+  margin: 5px;
   width: 100px;
   border-radius: 5px;
   transition: 0.2s;
