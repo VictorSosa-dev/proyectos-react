@@ -1,6 +1,6 @@
 export const TURNS = {
-  X: "⤫",
-  O: "o",
+  X: '⤫',
+  O: 'o'
 }
 
 export const WINNER_LINES = [
@@ -11,5 +11,5 @@ export const WINNER_LINES = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6],
+  [2, 4, 6]
 ]
