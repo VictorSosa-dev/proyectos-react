@@ -1,26 +1,29 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import confetti from "canvas-confetti"
 
 import "./App.css"
 import { Square }from "./components/Square.jsx"
 import { WinnerModal } from "./components/WinnerModal.jsx"
 import { TURNS } from "./constants.js"
+import { saveGameToStorage, resetGameToStorage } from "./logic/storage/index.js"
 
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js"
 
 function App() {
-  console.log('renderizar el componente App')
+ 
   const [board, setBoard] = useState(() => {
-    console.log('inicializar el estado del tablero')
     const boardFromLocalStorage = JSON.parse(window.localStorage.getItem("board"))
     return boardFromLocalStorage ? boardFromLocalStorage : Array(9).fill(null)
   })
   const [turn, setTurn] = useState(() => {
-    console.log('inicializar el estado del turno')
-    const turnFromLocalStorage = JSON.parse(window.localStorage.getItem("turn"))
+    const turnFromLocalStorage = window.localStorage.getItem("turn")
     return turnFromLocalStorage ?? TURNS.X
   })
   const [winner, setWinner] = useState(null)
+
+  useEffect(() => {
+    console.log("Se actualizo el estado del tablero")
+  })
 
   const updateBoard = (index) => {
     //Verificar si ya hay un valor en el tablero
@@ -34,8 +37,13 @@ function App() {
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn)
     //Guardar la partida en el localStorage
-    window.localStorage.setItem("board", JSON.stringify(newBoard))
-    window.localStorage.setItem("turn", JSON.stringify(newTurn))
+    saveGameToStorage({
+      board: newBoard,
+      turn: newTurn
+    })
+    // window.localStorage.setItem("board", JSON.stringify(newBoard))
+    //window.localStorage.setItem("turn", JSON.stringify(newTurn))
+
     //Verificar si hay un ganador
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
@@ -51,8 +59,9 @@ function App() {
     setTurn(TURNS.X)
     setWinner(null)
 
-    window.localStorage.removeItem("board")
-    window.localStorage.removeItem("turn")
+    resetGameToStorage()
+    //window.localStorage.removeItem("board")
+    //window.localStorage.removeItem("turn")
   }
 
   return (
