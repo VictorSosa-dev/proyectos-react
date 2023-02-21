@@ -9,8 +9,17 @@ import { TURNS } from "./constants.js"
 import { checkWinnerFrom, checkEndGame } from "./logic/board.js"
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null))
-  const [turn, setTurn] = useState(TURNS.X)
+  console.log('renderizar el componente App')
+  const [board, setBoard] = useState(() => {
+    console.log('inicializar el estado del tablero')
+    const boardFromLocalStorage = JSON.parse(window.localStorage.getItem("board"))
+    return boardFromLocalStorage ? boardFromLocalStorage : Array(9).fill(null)
+  })
+  const [turn, setTurn] = useState(() => {
+    console.log('inicializar el estado del turno')
+    const turnFromLocalStorage = JSON.parse(window.localStorage.getItem("turn"))
+    return turnFromLocalStorage ?? TURNS.X
+  })
   const [winner, setWinner] = useState(null)
 
   const updateBoard = (index) => {
@@ -24,6 +33,9 @@ function App() {
     //Actualizar el turno
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn)
+    //Guardar la partida en el localStorage
+    window.localStorage.setItem("board", JSON.stringify(newBoard))
+    window.localStorage.setItem("turn", JSON.stringify(newTurn))
     //Verificar si hay un ganador
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
@@ -38,6 +50,9 @@ function App() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X)
     setWinner(null)
+
+    window.localStorage.removeItem("board")
+    window.localStorage.removeItem("turn")
   }
 
   return (
