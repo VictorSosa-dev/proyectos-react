@@ -1,6 +1,6 @@
 import { WINNER_LINES } from '../constants.js'
 
-export const checkWinnerFrom = boardToCheck => {
+export const checkWinnerFrom = (boardToCheck) => {
   // Recorrer las lineas ganadoras
   for (const line of WINNER_LINES) {
     const [a, b, c] = line
@@ -16,6 +16,6 @@ export const checkWinnerFrom = boardToCheck => {
   return null
 }
 
-export const checkEndGame = boardToCheck => {
-  return boardToCheck.every(value => value !== null)
+export const checkEndGame = (boardToCheck) => {
+  return boardToCheck.every((value) => value !== null)
 }

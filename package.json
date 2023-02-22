@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --fix"
   },
   "workspaces": [
     "projects/*"
@@ -20,12 +21,20 @@
     "url": "https://github.com/VictorSosa-dev/proyectos-react/issues"
   },
   "homepage": "https://github.com/VictorSosa-dev/proyectos-react#readme",
-  "devDependencies": {
-    "standard": "^17.0.0"
-  },
   "eslintConfig": {
     "extends": [
       "./node_modules/standard/eslintrc.json"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4",
+    "standard": "^17.0.0"
   }
 }

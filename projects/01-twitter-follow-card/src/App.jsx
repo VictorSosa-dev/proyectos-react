@@ -1,22 +1,21 @@
-import { useState } from 'react'
 import './App.css'
-import {TwitterFollowCard } from './TwitterFollowCard'
+import { TwitterFollowCard } from './TwitterFollowCard'
 
 const user = [
   {
     name: 'Victor Sosa',
     userName: 'victorsosa-dev',
-    isFollowing: false,
+    isFollowing: false
   },
   {
     name: 'Miguel Ángel Durán',
     userName: 'midudev',
-    isFollowing: false,
+    isFollowing: false
   },
   {
     name: 'David',
     userName: 'david',
-    isFollowing: false,
+    isFollowing: false
   }
 ]
 
@@ -24,8 +23,8 @@ export function App() {
   const formatName = (userName) => `@${userName}`
 
   return (
-    <section className='App'>
-      {user.map(({name, userName, isFollowing}) => 
+    <section className="App">
+      {user.map(({ name, userName, isFollowing }) => (
         <TwitterFollowCard
           key={userName}
           formatName={formatName}
@@ -33,9 +32,7 @@ export function App() {
         >
           {name}
         </TwitterFollowCard>
-       )
-       }
-
+      ))}
     </section>
   )
 }

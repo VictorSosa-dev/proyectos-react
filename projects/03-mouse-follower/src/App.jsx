@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  return 'proyecto 3'
+  return <></>
 }
 
 export default App
