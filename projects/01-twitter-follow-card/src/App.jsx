@@ -20,7 +20,7 @@ const user = [
 ]
 
 export function App() {
-  const formatName = (userName) => `@${userName}`
+  const formatName = userName => `@${userName}`
 
   return (
     <section className="App">

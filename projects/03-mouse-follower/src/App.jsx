@@ -8,7 +8,7 @@ function FollowMouse(params) {
   // Pointer move
   useEffect(() => {
     // console.log('efecto', { enable })
-    const handleMouseMove = (e) => {
+    const handleMouseMove = e => {
       setPosition({ x: e.clientX, y: e.clientY })
     }
     // suscribirse a eventos
