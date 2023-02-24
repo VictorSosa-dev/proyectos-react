@@ -1,7 +1,7 @@
 {
-  "name": "react-prueba-tecnica",
+  "name": "04-react-prueba-tecnica",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
