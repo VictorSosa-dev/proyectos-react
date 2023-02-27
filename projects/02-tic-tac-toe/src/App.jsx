@@ -27,7 +27,7 @@ function App() {
     console.log('Se actualizo el estado del tablero')
   })
 
-  const updateBoard = index => {
+  const updateBoard = (index) => {
     // Verificar si ya hay un valor en el tablero
     if (board[index] || winner) return
     const newBoard = [...board]
