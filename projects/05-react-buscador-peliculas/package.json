@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -16,6 +17,13 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.0.1",
+    "standart": "^6.1.0",
     "vite": "^4.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "node_modules/standart/eslintrc.json"
+    ]
   }
 }

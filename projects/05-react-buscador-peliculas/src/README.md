@@ -2,16 +2,17 @@
 
 Crea una aplicación para buscar películas
 
+http://www.omdbapi.com/?apikey=[yourkey]&s=[movie]
 API a usar: - https://www.omdbapi.com/
 Consigue la API Key en la propia página web registrando tu email.
 
 Requerimientos:
 
-✅ Necesita mostrar un input para buscar la película y un botón para buscar.
+ ✅ ✅ Necesita mostrar un input para buscar la película y un botón para buscar.
 
-✅ Lista las películas y muestra el título, año y poster.
+✅ ✅ Lista las películas y muestra el título, año y poster.
 
-✅ Que el formulario funcione
+✅ ✅ Que el formulario funcione
 
 ✅ Haz que las películas se muestren en un grid responsive.
 
@@ -24,3 +25,14 @@ Primera iteración:
 ✅ Haz que la búsqueda se haga automáticamente al escribir.
 
 ✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
+
+
+## Nuevos temas
+
+useRef es un hook que nos permite crear una referencia mutable que no va a causar un re-renderizado del componente
+en este caso, la referencia mutable es el input
+
+### Uso de useRef
+
+- Ferencia del Dom
+- para ver si es la primera vez que se renderiza el componente
