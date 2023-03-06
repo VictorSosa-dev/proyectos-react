@@ -53,7 +53,7 @@ function FollowMouse(params) {
           top: -25,
           width: 50,
           height: 50,
-          transform: `translate(${position.x}px, ${position.y}px)`
+          transform: `translate(${position.x}px, ${position.y}px)`,
         }}
       />
       <button onClick={() => setEnable(!enable)}>

@@ -8,7 +8,7 @@ Consigue la API Key en la propia página web registrando tu email.
 
 Requerimientos:
 
- ✅ ✅ Necesita mostrar un input para buscar la película y un botón para buscar.
+✅ ✅ Necesita mostrar un input para buscar la película y un botón para buscar.
 
 ✅ ✅ Lista las películas y muestra el título, año y poster.
 
@@ -25,7 +25,6 @@ Primera iteración:
 ✅ Haz que la búsqueda se haga automáticamente al escribir.
 
 ✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
-
 
 ## Nuevos temas
 

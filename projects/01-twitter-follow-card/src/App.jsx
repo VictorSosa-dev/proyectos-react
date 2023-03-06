@@ -5,18 +5,18 @@ const user = [
   {
     name: 'Victor Sosa',
     userName: 'victorsosa-dev',
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: 'Miguel Ángel Durán',
     userName: 'midudev',
-    isFollowing: false
+    isFollowing: false,
   },
   {
     name: 'David',
     userName: 'david',
-    isFollowing: false
-  }
+    isFollowing: false,
+  },
 ]
 
 export function App() {

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
+    "prettier": "npx prettier --write \"**/*.js\""
   },
   "workspaces": [
     "projects/*"
@@ -22,10 +24,19 @@
   "homepage": "https://github.com/VictorSosa-dev/proyectos-react#readme",
   "eslintConfig": {
     "extends": [
-      "./node_modules/standard/eslintrc.json"
+      "standard",
+      "plugin:react/recommended",
+      "prettier"
     ]
   },
   "devDependencies": {
-    "standard": "^17.0.0"
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4"
   }
 }

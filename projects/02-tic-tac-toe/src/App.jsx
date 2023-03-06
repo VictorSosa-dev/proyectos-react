@@ -13,7 +13,7 @@ import { checkWinnerFrom, checkEndGame } from './logic/board.js'
 function App() {
   const [board, setBoard] = useState(() => {
     const boardFromLocalStorage = JSON.parse(
-      window.localStorage.getItem('board')
+      window.localStorage.getItem('board'),
     )
     return boardFromLocalStorage || Array(9).fill(null)
   })
@@ -41,7 +41,7 @@ function App() {
     // Guardar la partida en el localStorage
     saveGameToStorage({
       board: newBoard,
-      turn: newTurn
+      turn: newTurn,
     })
     // window.localStorage.setItem("board", JSON.stringify(newBoard))
     // window.localStorage.setItem("turn", JSON.stringify(newTurn))

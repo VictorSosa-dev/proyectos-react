@@ -38,9 +38,9 @@ const useSearch = () => {
 
 function App() {
   const { search, updateSearch, error } = useSearch()
-  const { movies, getMovies } = useMovies({ search }) 
-  
-  const handleSubmit = event => {
+  const { movies, getMovies } = useMovies({ search })
+
+  const handleSubmit = (event) => {
     event.preventDefault()
     // Devuelve un array con los valores de los campos del formulario
     //const { query } = Object.fromEntries(new window.FormData(event.target))
@@ -49,10 +49,10 @@ function App() {
     getMovies()
   }
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const newQuery = event.target.value
-    if(newQuery === '') return
-    updateSearch(newQuery)   
+    if (newQuery === '') return
+    updateSearch(newQuery)
   }
 
   return (
@@ -60,13 +60,20 @@ function App() {
       <header>
         <h1>Buscador de peliculas</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input style={{border: '1px solid transparent',
-                        borderColor: error ? 'red': 'transparent'}} name="query" onChange={handleChange} type="text" placeholder="At-Man, The Whale " />
+          <input
+            style={{
+              border: '1px solid transparent',
+              borderColor: error ? 'red' : 'transparent',
+            }}
+            name="query"
+            onChange={handleChange}
+            type="text"
+            placeholder="At-Man, The Whale "
+          />
           <button>Buscar</button>
         </form>
-        
       </header>
-      {error && <p style={{color: 'red'}}>{error}</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <main>
         <Movies movies={movies} />
       </main>
