@@ -14,17 +14,17 @@ Requerimientos:
 
 ✅ ✅ Que el formulario funcione
 
-✅ Haz que las películas se muestren en un grid responsive.
+✅ ✅ Haz que las películas se muestren en un grid responsive.
 
-✅ Hacer el fetching de datos a la API
+✅ ✅ Hacer el fetching de datos a la API
 
 Primera iteración:
 
-✅ Evitar que se haga la misma búsqueda dos veces seguidas.
+✅ ✅ Evitar que se haga la misma búsqueda dos veces seguidas.
 
-✅ Haz que la búsqueda se haga automáticamente al escribir.
+✅ ✅ Haz que la búsqueda se haga automáticamente al escribir.
 
-✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
+✅ ✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
 
 ## Nuevos temas
 
@@ -35,3 +35,19 @@ en este caso, la referencia mutable es el input
 
 - Ferencia del Dom
 - para ver si es la primera vez que se renderiza el componente
+- obtener el valor anterior de una variable
+
+### useMemo
+
+- Permite memorizar un valor
+- medir un valor
+
+### useCallback
+
+- Permite memorizar una función
+- simplifica la sintaxis de useMemo
+- solo se utiliza para funciones
+
+### race condition
+
+- Es un problema que ocurre cuando dos o más procesos intentan acceder a un recurso compartido al mismo tiempo

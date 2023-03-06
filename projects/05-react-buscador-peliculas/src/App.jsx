@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import './App.css'
 
 import { useMovies } from './hooks/useMovies.js'
 import { Movies } from './components/movies.jsx'
+import debounce from 'just-debounce-it'
 
 const useSearch = () => {
   const [search, updateSearch] = useState('')
@@ -37,22 +38,35 @@ const useSearch = () => {
 }
 
 function App() {
+  const [sort, setSort] = useState(false)
   const { search, updateSearch, error } = useSearch()
-  const { movies, getMovies } = useMovies({ search })
+  const { movies, getMovies, loading } = useMovies({ search, sort })
 
+  const debouncedGetMovies = useCallback(debounce(search => 
+    {
+      console.log('debouncedGetMovies', search)
+      getMovies({ search })
+    }, 2000)
+  , [getMovies])
+  
   const handleSubmit = (event) => {
     event.preventDefault()
     // Devuelve un array con los valores de los campos del formulario
     //const { query } = Object.fromEntries(new window.FormData(event.target))
     // const filds = new window.FormData(event.target)
-    console.log(search)
-    getMovies()
+    getMovies({ search })
   }
 
   const handleChange = (event) => {
     const newQuery = event.target.value
     if (newQuery === '') return
     updateSearch(newQuery)
+    //getMovies({ search: newQuery })
+    debouncedGetMovies(newQuery)
+  }
+
+  const handleSort = () => {
+    setSort(!sort)
   }
 
   return (
@@ -70,12 +84,13 @@ function App() {
             type="text"
             placeholder="At-Man, The Whale "
           />
+          <input type='checkbox' onChange={handleSort} />
           <button>Buscar</button>
         </form>
       </header>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <main>
-        <Movies movies={movies} />
+        {loading ? <p>Cargando...</p> : <Movies movies={movies} /> }
       </main>
     </div>
   )
