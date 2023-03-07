@@ -42,13 +42,14 @@ function App() {
   const { search, updateSearch, error } = useSearch()
   const { movies, getMovies, loading } = useMovies({ search, sort })
 
-  const debouncedGetMovies = useCallback(debounce(search => 
-    {
+  const debouncedGetMovies = useCallback(
+    debounce((search) => {
       console.log('debouncedGetMovies', search)
       getMovies({ search })
-    }, 2000)
-  , [getMovies])
-  
+    }, 2000),
+    [getMovies],
+  )
+
   const handleSubmit = (event) => {
     event.preventDefault()
     // Devuelve un array con los valores de los campos del formulario
@@ -84,14 +85,12 @@ function App() {
             type="text"
             placeholder="At-Man, The Whale "
           />
-          <input type='checkbox' onChange={handleSort} />
+          <input type="checkbox" onChange={handleSort} />
           <button>Buscar</button>
         </form>
       </header>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <main>
-        {loading ? <p>Cargando...</p> : <Movies movies={movies} /> }
-      </main>
+      <main>{loading ? <p>Cargando...</p> : <Movies movies={movies} />}</main>
     </div>
   )
 }
