@@ -3,7 +3,7 @@ import { AddToCartIcon } from './Icons.jsx'
 
 export function Products({ products }) {
   return (
-    <main className="products">
+    <main className='products'>
       <ul>
         {products.slice(0, 10).map((product) => (
           <li key={product.id}>

@@ -47,7 +47,7 @@ function App() {
       console.log('debouncedGetMovies', search)
       getMovies({ search })
     }, 2000),
-    [getMovies],
+    [getMovies]
   )
 
   const handleSubmit = (event) => {
@@ -71,21 +71,21 @@ function App() {
   }
 
   return (
-    <div className="container-fluid page">
+    <div className='container-fluid page'>
       <header>
         <h1>Buscador de peliculas</h1>
-        <form className="form" onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
           <input
             style={{
               border: '1px solid transparent',
-              borderColor: error ? 'red' : 'transparent',
+              borderColor: error ? 'red' : 'transparent'
             }}
-            name="query"
+            name='query'
             onChange={handleChange}
-            type="text"
-            placeholder="At-Man, The Whale "
+            type='text'
+            placeholder='At-Man, The Whale '
           />
-          <input type="checkbox" onChange={handleSort} />
+          <input type='checkbox' onChange={handleSort} />
           <button>Buscar</button>
         </form>
       </header>

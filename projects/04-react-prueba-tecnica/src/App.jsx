@@ -16,7 +16,7 @@ export function App() {
       <h1>App de gatitos</h1>
       <button onClick={handleClick}>Get new fact</button>
       {fact && <p>{fact}</p>}
-      {imageUrl && <img src={imageUrl} alt="fac" />}
+      {imageUrl && <img src={imageUrl} alt='fac' />}
     </main>
   )
 }

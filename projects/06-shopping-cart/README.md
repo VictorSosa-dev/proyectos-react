@@ -15,3 +15,26 @@ Carrito:
 - [x] Haz que se puedan modificar la cantidad de productos del carrito.
 - [x] Sincroniza los cambios del carrito con la lista de productos.
 - [x] Guarda en un localStorage el carrito para que se recupere al recargar la página. (da puntos)
+
+## Cosas aprendidas
+
+Cuando se pasen las props entre componentes
+se puede usar la composición de componentes
+para evitar taladrar los hijos con props
+Se puede usar los children para pasar los props a los componentes
+
+- [x] Uso de context
+      Se usa para pasar props a los componentes,
+      desacoplando la lógica de los componentes
+      y esta fuera del árbol de componentes
+      Tenemos que crear un contexto y un provider
+      que envuelva a los componentes que queremos
+      que tengan acceso a los datos del contexto.
+      Pasos para crear un contexto:
+  1. Crear el contexto
+  2. Proveer el contexto
+  3. Consumir el contexto
+- [ ]
+- [ ] UseReducer
+- [ ] UseId
+      crea un identificador único

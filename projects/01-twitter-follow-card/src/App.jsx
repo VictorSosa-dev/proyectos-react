@@ -5,25 +5,25 @@ const user = [
   {
     name: 'Victor Sosa',
     userName: 'victorsosa-dev',
-    isFollowing: false,
+    isFollowing: false
   },
   {
     name: 'Miguel Ángel Durán',
     userName: 'midudev',
-    isFollowing: false,
+    isFollowing: false
   },
   {
     name: 'David',
     userName: 'david',
-    isFollowing: false,
-  },
+    isFollowing: false
+  }
 ]
 
 export function App() {
   const formatName = (userName) => `@${userName}`
 
   return (
-    <section className="App">
+    <section className='App'>
       {user.map(({ name, userName, isFollowing }) => (
         <TwitterFollowCard
           key={userName}

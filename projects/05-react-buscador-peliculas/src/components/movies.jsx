@@ -1,8 +1,8 @@
 function ListOfMovies({ movies }) {
   return (
-    <ul className="movies">
+    <ul className='movies'>
       {movies.map((movie) => (
-        <li className="movie" key={movie.id}>
+        <li className='movie' key={movie.id}>
           <div>
             <h3>{movie.title}</h3>
             <p>{movie.year}</p>
