@@ -24,17 +24,18 @@ para evitar taladrar los hijos con props
 Se puede usar los children para pasar los props a los componentes
 
 - [x] Uso de context
-      Se usa para pasar props a los componentes,
-      desacoplando la lógica de los componentes
-      y esta fuera del árbol de componentes
-      Tenemos que crear un contexto y un provider
-      que envuelva a los componentes que queremos
-      que tengan acceso a los datos del contexto.
-      Pasos para crear un contexto:
+      Se usa para crear estados globales
+      que cambian pocas veces como,
+      el tema, el idioma, el carrito de la compra
   1. Crear el contexto
   2. Proveer el contexto
   3. Consumir el contexto
 - [ ]
 - [ ] UseReducer
+      Se usa cuando el estado se esta seteando muchas veces
+      y se quiere tener un control de los cambios
 - [ ] UseId
       crea un identificador único
+
+- [ ] Tener solo una fuente de la verdad
+      para el estado global

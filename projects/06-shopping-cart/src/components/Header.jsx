@@ -1,11 +1,11 @@
 import './Header.css'
 import { Filters } from './Filters.jsx'
 
-export function Header({ changeFilter }) {
+export function Header() {
   return (
     <header>
       <h1>My Store 🛍️</h1>
-      <Filters onChange={changeFilter} />
+      <Filters />
     </header>
   )
 }

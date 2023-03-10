@@ -1,8 +1,11 @@
 import { useState, useId } from 'react'
+import { useFilters } from '../hooks/useFilters'
 import './Filters.css'
 
-export function Filters({ onChange }) {
-  const [minprice, setMinPrice] = useState(0)
+export function Filters() {
+  //const [minprice, setMinPrice] = useState(0) // esto no es necesario es un estado local
+  const { filters, setFilters } = useFilters()
+
   const minPriceId = useId()
   const categoryId = useId()
 
@@ -10,15 +13,15 @@ export function Filters({ onChange }) {
     // aqui algo esta mal
     // estamos pasando la funcion de actualizar estado
     // nativa de React a un componente hijo
-    setMinPrice(e.target.value)
-    onChange((prevState) => ({
+    //setMinPrice(e.target.value)
+    setFilters((prevState) => ({
       ...prevState,
       minPrice: e.target.value
     }))
   }
 
   const handleChangeCategory = (e) => {
-    onChange((prevState) => ({
+    setFilters((prevState) => ({
       ...prevState,
       category: e.target.value
     }))
@@ -34,13 +37,18 @@ export function Filters({ onChange }) {
           min='0'
           max='1000'
           onChange={handleChangeMinPrice}
+          value={filters.minPrice}
         />
-        <span>${minprice}</span>
+        <span>${filters.minPrice}</span>
       </div>
 
       <div>
         <label htmlFor={categoryId}>Categoria:</label>
-        <select id={categoryId} onChange={handleChangeCategory}>
+        <select
+          id={categoryId}
+          onChange={handleChangeCategory}
+          value={filters.category}
+        >
           <option value='all'>Todas</option>
           <option value='laptops'>Portatiles</option>
           <option value='smartphones'>Celulares</option>
