@@ -1,6 +1,6 @@
-import { EVENTS } from './conts'
+import { EVENTS, BOTON } from './consts'
 
-export function navigate(href) {
+export function navigate (href) {
   // Cambiar la URL
   window.history.pushState({}, '', href)
   // Crear evento personalizado
@@ -9,20 +9,20 @@ export function navigate(href) {
   window.dispatchEvent(navigationEvent)
 }
 
-export function Link({ target, to, ...props }) {
+export function Link ({ target, to, ...props }) {
   const handleClick = (e) => {
+
     // Validaciones
-
-    const isMainEvent = e.button === 0 // primary click
+    const isMainEvent = e.button === BOTON.primary // primary click
     const isModifiedEvent = e.metaKey || e.altKey || e.ctrlKey || e.shiftKey
-
     const isManageableEvent = target === undefined || target === '_self'
 
-    if (!isMainEvent && isModifiedEvent && !isManageableEvent) {
+    if (isMainEvent && !isModifiedEvent && isManageableEvent) {
       e.preventDefault()
-      navigate(to)
+      navigate(to) // navegacion con SPA
+
     }
   }
 
-  return <a onClick={handleClick} href={to} target={target} {...props} />
+  return <a onClick={ handleClick } href={ to } target={ target } { ...props } />
 }
